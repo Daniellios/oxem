@@ -10,5 +10,3 @@
 
 Web-page - https://oxem.vercel.app/
 
-# P.S.
-- Задеплоил на Vercel вместо Gh-pages, надеюсь, не критично.
