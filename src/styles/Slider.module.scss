@@ -1,0 +1,144 @@
+@import "mixins", "variables";
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.range {
+  margin-top: -2px;
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  height: 1px; /* Specified height */
+  background: $sliderBg; /* Grey background */
+  outline: none; /* Remove outline */
+  @include toRem(margin-left, 20);
+  @include toRem(margin-right, 20);
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  border: transparent;
+  z-index: 20;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    border-radius: 50%;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: $buttonPassive;
+    transition: all ease-in-out 0.1s;
+    cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: $buttonPassive;
+    cursor: pointer;
+  }
+
+  @include sm {
+    margin-left: 1rem;
+    margin-top: -2px;
+  }
+
+  @include md {
+    @include toRem(margin-top, -2);
+  }
+
+  @include lg {
+    @include toRem(margin-top, -22);
+  }
+  @include lg {
+    @include toRem(margin-top, -29);
+  }
+}
+
+.text_input_container {
+  display: flex;
+  position: relative;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.disable_overlay {
+  position: absolute;
+  pointer-events: none;
+  height: 130%;
+  width: 100%;
+  border-radius: 12px;
+  background-color: rgba($textWhite, 0.4);
+  z-index: 99;
+  &:hover {
+    pointer-events: none;
+  }
+}
+
+.text_input {
+  @include toRem(height, 60);
+  @include toRem(font-size, 22);
+  @include toRem(padding-left, 20);
+  @include toRem(padding-right, 20);
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: $inputDarkText;
+  border-radius: 16px;
+  background-color: $inputBg;
+  border: 2px solid transparent;
+
+  &:focus {
+    background-color: $textWhite;
+    outline: 10px;
+    border: 2px solid $inputBg;
+  }
+}
+
+.value_type_month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darken($inputBg, 10);
+  @include toRem(font-size, 20);
+  width: 35px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.value_container {
+  display: flex;
+  position: absolute;
+  @include toRem(right, 20);
+  justify-content: center;
+  justify-items: center;
+  @include toRem(font-size, 30);
+  color: $inputDarkText;
+  font-family: $titleFont;
+  font-weight: 900;
+}
+
+.slider_title {
+  font-size: 1rem;
+  font-family: $mainFont;
+
+  @include sm {
+    margin-bottom: 1rem;
+  }
+
+  @include xl {
+    margin-bottom: 0;
+  }
+}
