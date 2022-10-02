@@ -4,28 +4,38 @@
 
 name: CI
 
-on: [push]
+on:
+  push:
+    branches: main
+    paths-ignore:
+      - "**.md"
+
+  pull_request:
+    branches: main
+    paths-ignore:
+      - "**.md"
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16, 18]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    name: Node ${{ matrix.node }} sample
     steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v3.0.0
+      - name: Checkout 🛎️
+        uses: actions/checkout@master
         with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v3.0.0
+          persist-credentials: false
+
+      - name: Install 🔧
+        run: yarn install
+
+      - name: Build 🏗️
+        run: yarn build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        uses: peaceiris/actions-gh-pages@v3
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: out # The folder the action should deploy.
+          folder: dist # The folder the action should deploy.
