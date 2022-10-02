@@ -1,9 +1,11 @@
-# Example app with next-sass
+# Тестовове задание
 
 Для Запуска
 
-# yarn install
+- yarn install
 
-# yarn dev
+- yarn dev
+
+# Сайт
 
 Web-page - https://oxem.vercel.app/
