@@ -22,6 +22,8 @@ export default function Home() {
   // Состояние загрузки
   const [isLoading, setIsLoading] = useState(false);
 
+  const [requestTextStatus, setRequestTextStatus] = useState("Оставить заявку");
+
   useEffect(() => {
     countFirstPayment();
     countMounthlyPayment();
@@ -60,6 +62,7 @@ export default function Home() {
     setTimeout(() => {
       setIsLoading(false);
       setIsDisabled(true);
+      setRequestTextStatus("Заявка отправлена!");
     }, 2000);
 
     await axios({
@@ -171,7 +174,7 @@ export default function Home() {
                     <div></div>
                   </div>
                 ) : (
-                  "Оставить заявку"
+                  requestTextStatus
                 )}
               </button>
             </div>

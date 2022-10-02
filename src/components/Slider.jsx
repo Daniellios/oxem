@@ -33,7 +33,7 @@ const Slider = memo(
 
     return (
       <div className={styles.container}>
-        <h3 className={styles.slider_title}>{title}</h3>
+        <h3 className={styles.title}>{title}</h3>
         <div className={styles.text_input_container}>
           <input
             type="number"

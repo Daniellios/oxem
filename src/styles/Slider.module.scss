@@ -10,10 +10,10 @@
 
 .range {
   margin-top: -2px;
-  -webkit-appearance: none; /* Override default CSS styles */
+  -webkit-appearance: none;
   appearance: none;
-  height: 1px; /* Specified height */
-  background: $sliderBg; /* Grey background */
+  height: 1px;
+  background: $sliderBg;
   outline: none; /* Remove outline */
   @include toRem(margin-left, 20);
   @include toRem(margin-right, 20);
@@ -24,7 +24,7 @@
   z-index: 20;
 
   &::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
     appearance: none;
     border-radius: 50%;
     width: 25px; /* Set a specific slider handle width */
@@ -38,8 +38,8 @@
   }
 
   &::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
+    width: 25px;
+    height: 25px;
     background: $buttonPassive;
     cursor: pointer;
   }
@@ -147,7 +147,7 @@
   }
 }
 
-.slider_title {
+.title {
   font-size: 1rem;
   font-family: $mainFont;
 
