@@ -28,7 +28,6 @@ jobs:
         with:
           cmd: build # will run `yarn build` command
       - uses: borales/actions-yarn@v3.0.0
-      - run: touch ./out/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
