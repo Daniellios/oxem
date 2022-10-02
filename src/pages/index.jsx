@@ -19,7 +19,7 @@ export default function Home() {
   const [dealSum, setDealSum] = useState(1);
   // Состояние кнопки на заявку
   const [isDisabled, setIsDisabled] = useState(false);
-
+  // Состояние загрузки
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -99,8 +99,17 @@ export default function Home() {
     <>
       <Head>
         <title>Тестовое задание от Oxem Studio</title>
-        <meta name="description" content="Тестовое задание от Oxem Studio" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta charSet="UTF-8"></meta>
+        <meta
+          name="description"
+          content="Тестовое задание от Oxem Studio"
+        ></meta>
+        <meta
+          name="viewport"
+          content="width=device-width"
+          initial-scale="1.0"
+        ></meta>
+        <link rel="icon" href="/favicon.ico"></link>
       </Head>
 
       <main className={styles.app}>
@@ -151,7 +160,7 @@ export default function Home() {
                 </h2>
               </div>
               <button
-                onClick={handleLeaseRequest}
+                onClick={!isLoading ? handleLeaseRequest : null}
                 disabled={isDisabled}
                 className={styles.button_main}
               >

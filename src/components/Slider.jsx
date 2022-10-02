@@ -22,9 +22,9 @@ const Slider = memo(
     }, [value]);
 
     const changeCallback = (e) => {
-      if (parseInt(e.target.value) >= max) {
+      if (parseInt(e.target.value) > max) {
         onSliderChange(max);
-      } else if (parseInt(e.target.value) <= min) {
+      } else if (parseInt(e.target.value) < min) {
         onSliderChange(min);
       } else {
         onSliderChange(e.target.value);
@@ -34,7 +34,6 @@ const Slider = memo(
     return (
       <div className={styles.container}>
         <h3 className={styles.slider_title}>{title}</h3>
-
         <div className={styles.text_input_container}>
           <input
             type="number"
@@ -45,12 +44,20 @@ const Slider = memo(
               slidertype === "Payment" ? firstPayment + " ₽" : sliderVal
             }
             disabled={slidertype === "Payment" ? true : isDisabled}
-          />
+          ></input>
+
           <div className={styles.value_container}>
             {slidertype === "Payment" ? (
-              <div className={styles.value_type_month}>
-                {sliderVal + valueType}
-              </div>
+              <>
+                <input
+                  type="number"
+                  onChange={changeCallback}
+                  className={styles.value_input_percent}
+                  value={sliderVal}
+                  disabled={isDisabled}
+                ></input>
+                <span className={styles.percent_sign}> {valueType}</span>
+              </>
             ) : (
               valueType
             )}
@@ -66,7 +73,7 @@ const Slider = memo(
           max={max}
           {...passedProps}
           disabled={isDisabled}
-        />
+        ></input>
         {isDisabled ? <div className={styles.disable_overlay}></div> : ""}
       </div>
     );
