@@ -29,6 +29,20 @@ const Slider = memo(
     // }, [value, sliderVal]);
 
     const changeCallback = (e) => {
+      if (e.target.value === "") {
+        onSliderChange(min);
+      } else {
+        if (parseInt(e.target.value) > max + max) {
+          onSliderChange(max);
+        } else if (parseInt(e.target.value) < min - min) {
+          onSliderChange(min);
+        } else {
+          onSliderChange(e.target.value);
+        }
+      }
+    };
+
+    const setCorectValue = (e) => {
       if (parseInt(e.target.value) > max) {
         onSliderChange(max);
       } else if (parseInt(e.target.value) < min) {
@@ -50,6 +64,7 @@ const Slider = memo(
             placeholder={
               slidertype === "Payment" ? firstPayment + " ₽" : sliderVal
             }
+            onBlur={setCorectValue}
             disabled={slidertype === "Payment" ? true : isDisabled}
           ></input>
 
