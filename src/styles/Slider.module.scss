@@ -36,11 +36,14 @@
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: $buttonPassive;
+
     -webkit-transition: all ease-in-out 0.1s;
     transition: all ease-in-out 0.1s;
+
     cursor: pointer;
     &:hover {
-      scale: 1.1;
+      // scale: 1.1;
+      transform: scale(1.1);
     }
   }
 
@@ -54,7 +57,8 @@
     background: $buttonPassive;
     cursor: pointer;
     &:hover {
-      scale: 1.1;
+      // scale: 1.1;
+      transform: scale(1.1);
     }
   }
 
@@ -129,7 +133,7 @@
 
   &:focus {
     background-color: $textWhite;
-    outline: 10px;
+    outline: transparent;
     border: 2px solid $inputBg;
   }
 }

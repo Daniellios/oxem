@@ -65,6 +65,7 @@ const Slider = memo(
               slidertype === "Payment" ? firstPayment + " ₽" : sliderVal
             }
             onBlur={setCorectValue}
+            title={"text" + valueType}
             disabled={slidertype === "Payment" ? true : isDisabled}
           ></input>
 
@@ -77,6 +78,7 @@ const Slider = memo(
                   className={styles.value_input_percent}
                   value={sliderVal}
                   disabled={isDisabled}
+                  title={"percent" + valueType}
                 ></input>
                 <span className={styles.percent_sign}> {valueType}</span>
               </>
@@ -95,6 +97,7 @@ const Slider = memo(
           max={max}
           {...passedProps}
           disabled={isDisabled}
+          title={"range" + valueType}
         ></input>
         {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА, закомментил по причине того,
         что мне не нравится как линия немного вылетает в бок и не очень красиво получается 
