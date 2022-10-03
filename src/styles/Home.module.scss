@@ -161,7 +161,7 @@
   }
 }
 
-.sub_title {
+.deal_sub_title {
   font-family: $mainFont;
 
   @include sm {
@@ -172,7 +172,7 @@
   }
 }
 
-.total {
+.deal_total {
   font-family: $titleFont;
   font-weight: 900;
 

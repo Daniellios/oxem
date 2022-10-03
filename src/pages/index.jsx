@@ -107,11 +107,6 @@ export default function Home() {
           name="description"
           content="Тестовое задание от Oxem Studio"
         ></meta>
-        <meta
-          name="viewport"
-          content="width=device-width"
-          initial-scale="1.0"
-        ></meta>
         <link rel="icon" href="/favicon.ico"></link>
       </Head>
 
@@ -147,16 +142,18 @@ export default function Home() {
 
             <div className={styles.deal_grid}>
               <div className={styles.deal_container}>
-                <h3 className={styles.sub_title}>Сумма договора лизинга</h3>
-                <h2 className={styles.total}>
+                <h3 className={styles.deal_sub_title}>
+                  Сумма договора лизинга
+                </h3>
+                <h2 className={styles.deal_total}>
                   {!isNaN(+dealSum)
                     ? dealSum?.toLocaleString("ru-RU") + " ₽"
                     : 0}
                 </h2>
               </div>
               <div className={styles.deal_container}>
-                <h3 className={styles.sub_title}>Ежемесячный платеж от</h3>
-                <h2 className={styles.total}>
+                <h3 className={styles.deal_sub_title}>Ежемесячный платеж от</h3>
+                <h2 className={styles.deal_total}>
                   {!isNaN(+monthlyPayment) && monthlyPayment !== Infinity
                     ? monthlyPayment?.toLocaleString("ru-RU") + " ₽"
                     : 0}
