@@ -101,7 +101,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Тестовое задание от Oxem Studio</title>
+        <title>Тест от Oxem Studio</title>
         <meta charSet="UTF-8"></meta>
         <meta
           name="description"
