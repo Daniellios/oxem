@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 
 import styles from "../styles/Slider.module.scss";
 
@@ -16,10 +16,17 @@ const Slider = memo(
     ...passedProps
   }) => {
     const [sliderVal, setSliderVal] = useState(value);
+    const rangeFollowRef = useRef();
 
     useEffect(() => {
       setSliderVal(value);
     }, [value]);
+
+    // РАССЧЕТ ШИРИНЫ КАСТОМНОГО ИНТПУТА
+    // useEffect(() => {
+    //   rangeFollowRef.current.style.backgroundSize =
+    //     ((sliderVal - min) * 100) / (max - min) + "% 100%";
+    // }, [value, sliderVal]);
 
     const changeCallback = (e) => {
       if (parseInt(e.target.value) > max) {
@@ -74,6 +81,10 @@ const Slider = memo(
           {...passedProps}
           disabled={isDisabled}
         ></input>
+        {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА, закомментил по причине того,
+        что мне не нравится как линия немного вылетает в бок и не очень красиво получается 
+        но в целом работает нормально*/}
+        {/* <div ref={rangeFollowRef} className={styles.range_follower}></div> */}
         {isDisabled ? <div className={styles.disable_overlay}></div> : ""}
       </div>
     );

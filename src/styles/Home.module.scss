@@ -4,7 +4,15 @@
   width: 100%;
   height: 100%;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: $textWhite;
   font-family: $mainFont;
@@ -26,7 +34,13 @@
   max-width: 1440px;
   width: 100%;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
   justify-items: start;
   gap: 2rem;
 
@@ -43,7 +57,12 @@
 }
 
 .grid_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 
   @include sm {
@@ -56,11 +75,13 @@
 }
 
 .slider_grid {
+  display: -ms-grid;
   display: grid;
   width: 100%;
 
   @include sm {
     @include toRem(gap, 30);
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 96px);
   }
@@ -78,6 +99,7 @@
 }
 
 .deal_grid {
+  display: -ms-grid;
   display: grid;
   width: 100%;
 
@@ -121,6 +143,12 @@
 
 .deal_container {
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   justify-items: center;
 
@@ -163,6 +191,8 @@
   font-family: $titleFont;
   border-radius: 50px;
   border: transparent;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   font-weight: bold;
   font-size: 30px;
@@ -170,6 +200,8 @@
   width: 100%;
   max-width: 426px;
   cursor: pointer;
+  -webkit-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  -o-transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:disabled {
@@ -201,8 +233,8 @@
   height: 36px;
 
   div {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    display: block;
     position: absolute;
     width: 32px;
     height: 32px;
@@ -210,26 +242,47 @@
     border: 4px solid #fff;
     border-radius: 50%;
     animation: loading_ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    // -webkit-animation: loading_ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: #fff transparent transparent transparent;
   }
   div:nth-child(1) {
+    -webkit-animation-delay: -0.3s;
     animation-delay: -0.3s;
   }
 
   div:nth-child(2) {
     animation-delay: -0.15s;
+    -webkit-animation-delay: -0.15s;
   }
 
   div:nth-child(3) {
     animation-delay: -0.05s;
+    -webkit-animation-delay: -0.05s;
   }
 }
 
 @keyframes loading_ring {
   0% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loading_ring {
+  0% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
     transform: rotate(360deg);
   }
 }

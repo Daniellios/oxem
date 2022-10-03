@@ -3,6 +3,9 @@
 .container {
   position: relative;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   width: 100%;
   justify-content: center;
   flex-direction: column;
@@ -11,6 +14,7 @@
 .range {
   margin-top: -2px;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   height: 1px;
   background: $sliderBg;
@@ -19,6 +23,8 @@
   @include toRem(margin-right, 20);
   opacity: 1; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  -webkit-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
   transition: opacity 0.2s;
   border: transparent;
   z-index: 20;
@@ -30,6 +36,7 @@
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     background: $buttonPassive;
+    -webkit-transition: all ease-in-out 0.1s;
     transition: all ease-in-out 0.1s;
     cursor: pointer;
     &:hover {
@@ -38,10 +45,17 @@
   }
 
   &::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none;
     width: 25px;
     height: 25px;
+    border: transparent;
+    border-radius: 50%;
     background: $buttonPassive;
     cursor: pointer;
+    &:hover {
+      scale: 1.1;
+    }
   }
 
   @include sm {
@@ -56,16 +70,23 @@
   @include lg {
     @include toRem(margin-top, -22);
   }
-  @include lg {
+  @include xl {
     @include toRem(margin-top, -29);
   }
 }
 
 .text_input_container {
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   position: relative;
   height: 100%;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   width: 100%;
   border-radius: 12px;
@@ -75,7 +96,7 @@
 .disable_overlay {
   position: absolute;
   pointer-events: none;
-  height: 130%;
+  height: 140%;
   width: 100%;
   border-radius: 12px;
   background-color: rgba($textWhite, 0.4);
@@ -92,8 +113,13 @@
   @include toRem(padding-right, 20);
   -webkit-appearance: none;
   display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   width: 100%;
   justify-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   font-weight: 800;
   color: $inputDarkText;
@@ -109,10 +135,16 @@
 }
 
 .value_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: absolute;
   @include toRem(right, 20);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   @include toRem(font-size, 30);
   color: $inputDarkText;
@@ -122,13 +154,20 @@
 
 .percent_sign {
   position: absolute;
+  z-index: 25;
   right: 6px;
   @include toRem(font-size, 20);
 }
 
 .value_input_percent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: darken($inputBg, 3);
   border: 2px solid transparent;
@@ -157,5 +196,37 @@
 
   @include xl {
     margin-bottom: 0;
+  }
+}
+
+.range_follower {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  padding: 1px;
+  bottom: 0;
+  border-radius: 5px;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from($buttonPassive),
+    to($buttonPassive)
+  );
+  background-image: -o-linear-gradient($buttonPassive, $buttonPassive);
+  background-image: linear-gradient($buttonPassive, $buttonPassive);
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  z-index: 20;
+
+  @include md {
+    transform: translate(0%, 1px);
+  }
+
+  @include lg {
+    transform: translate(0%, -2px);
+  }
+  @include xl {
+    transform: translate(0%, -6px);
   }
 }
