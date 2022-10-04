@@ -23,10 +23,10 @@ const Slider = memo(
     }, [value]);
 
     // РАССЧЕТ ШИРИНЫ КАСТОМНОГО ИНТПУТА
-    // useEffect(() => {
-    //   rangeFollowRef.current.style.backgroundSize =
-    //     ((sliderVal - min) * 100) / (max - min) + "% 100%";
-    // }, [value, sliderVal]);
+    useEffect(() => {
+      rangeFollowRef.current.style.backgroundSize =
+        ((sliderVal - min) * 100) / (max - min) + "% 100%";
+    }, [value, sliderVal]);
 
     const changeCallback = (e) => {
       if (e.target.value === "") {
@@ -99,10 +99,8 @@ const Slider = memo(
           disabled={isDisabled}
           title={"range" + valueType}
         ></input>
-        {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА, закомментил по причине того,
-        что мне не нравится как линия немного вылетает в бок и не очень красиво получается 
-        но в целом работает нормально*/}
-        {/* <div ref={rangeFollowRef} className={styles.range_follower}></div> */}
+        {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА*/}
+        <div ref={rangeFollowRef} className={styles.range_follower}></div>
         {isDisabled ? <div className={styles.disable_overlay}></div> : ""}
       </div>
     );
