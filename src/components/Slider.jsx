@@ -78,6 +78,7 @@ const Slider = memo(
                   className={styles.value_input_percent}
                   value={sliderVal}
                   disabled={isDisabled}
+                  onBlur={setCorectValue}
                   title={"percent" + valueType}
                 ></input>
                 <span className={styles.percent_sign}> {valueType}</span>
