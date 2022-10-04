@@ -61,9 +61,6 @@ const Slider = memo(
             className={styles.text_input}
             value={slidertype === "Payment" ? firstPayment : sliderVal}
             onChange={changeCallback}
-            placeholder={
-              slidertype === "Payment" ? firstPayment + " ₽" : sliderVal
-            }
             onBlur={setCorectValue}
             title={"text" + valueType}
             disabled={slidertype === "Payment" ? true : isDisabled}
@@ -78,6 +75,7 @@ const Slider = memo(
                   className={styles.value_input_percent}
                   value={sliderVal}
                   disabled={isDisabled}
+                  onBlur={setCorectValue}
                   title={"percent" + valueType}
                 ></input>
                 <span className={styles.percent_sign}> {valueType}</span>
