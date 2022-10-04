@@ -206,7 +206,7 @@
 .range_follower {
   position: absolute;
   left: 1rem;
-  right: 1rem;
+  right: 1.2rem;
   padding: 1px;
   bottom: 0;
   border-radius: 5px;
@@ -223,14 +223,21 @@
   background-repeat: no-repeat;
   z-index: 20;
 
+  @include sm {
+    right: 1.6rem;
+  }
+
   @include md {
+    right: 1.5rem;
     transform: translate(0%, 1px);
   }
 
   @include lg {
+    right: 1.4rem;
     transform: translate(0%, -2px);
   }
   @include xl {
+    right: 1.3rem;
     transform: translate(0%, -6px);
   }
 }
