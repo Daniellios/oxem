@@ -233,6 +233,7 @@
   }
   @include sm {
     right: 1.6rem;
+    transform: translate(0%, 0px);
   }
 
   @include md {
