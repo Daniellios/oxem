@@ -61,6 +61,10 @@
       transform: scale(1.1);
     }
   }
+  @include xsm {
+    margin-left: 1rem;
+    margin-top: -14px;
+  }
 
   @include sm {
     margin-left: 1rem;
@@ -223,14 +227,25 @@
   background-repeat: no-repeat;
   z-index: 20;
 
+  @include xsm {
+    right: 2rem;
+    transform: translate(0%, -2px);
+  }
+  @include sm {
+    right: 1.6rem;
+  }
+
   @include md {
+    right: 1.5rem;
     transform: translate(0%, 1px);
   }
 
   @include lg {
+    right: 1.4rem;
     transform: translate(0%, -2px);
   }
   @include xl {
+    right: 1.3rem;
     transform: translate(0%, -6px);
   }
 }

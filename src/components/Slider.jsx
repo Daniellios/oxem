@@ -23,10 +23,10 @@ const Slider = memo(
     }, [value]);
 
     // РАССЧЕТ ШИРИНЫ КАСТОМНОГО ИНТПУТА
-    // useEffect(() => {
-    //   rangeFollowRef.current.style.backgroundSize =
-    //     ((sliderVal - min) * 100) / (max - min) + "% 100%";
-    // }, [value, sliderVal]);
+    useEffect(() => {
+      rangeFollowRef.current.style.backgroundSize =
+        ((sliderVal - min) * 100) / (max - min) + "% 100%";
+    }, [value, sliderVal]);
 
     const changeCallback = (e) => {
       if (e.target.value === "") {
@@ -65,7 +65,7 @@ const Slider = memo(
               slidertype === "Payment" ? firstPayment + " ₽" : sliderVal
             }
             onBlur={setCorectValue}
-            title={"text" + valueType}
+            title={"Payment"}
             disabled={slidertype === "Payment" ? true : isDisabled}
           ></input>
 
@@ -79,7 +79,7 @@ const Slider = memo(
                   value={sliderVal}
                   disabled={isDisabled}
                   onBlur={setCorectValue}
-                  title={"percent" + valueType}
+                  title={"percent"}
                 ></input>
                 <span className={styles.percent_sign}> {valueType}</span>
               </>
@@ -98,12 +98,10 @@ const Slider = memo(
           max={max}
           {...passedProps}
           disabled={isDisabled}
-          title={"range" + valueType}
+          title={"range"}
         ></input>
-        {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА, закомментил по причине того,
-        что мне не нравится как линия немного вылетает в бок и не очень красиво получается 
-        но в целом работает нормально*/}
-        {/* <div ref={rangeFollowRef} className={styles.range_follower}></div> */}
+        {/* КАСТОМНАЯ ЛИНИЯ ИНПУТА, на первом инпуте подтормаживает, но в целом работате нормально */}
+        <div ref={rangeFollowRef} className={styles.range_follower}></div>
         {isDisabled ? <div className={styles.disable_overlay}></div> : ""}
       </div>
     );

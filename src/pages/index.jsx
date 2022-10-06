@@ -67,13 +67,14 @@ export default function Home() {
 
     await axios({
       method: "post",
-      url: "https://eoj3r7f3r4ef6v4.m.pipedream.net",
+      url: "https://hookb.in/eK160jgYJ6UlaRPldJ1P",
       data: {
-        leaseSum: price,
-        firstPayment: firstPaymentPercent,
-        leaseTerm: months,
-        leaseDealSum: dealSum,
-        mounthFee: monthlyPayment,
+        car_coast: price,
+        initail_payment: firstPaymentSum,
+        initail_payment_percent: firstPaymentPercent,
+        lease_term: months,
+        total_sum: dealSum,
+        monthly_payment_from: monthlyPayment,
       },
     }).then((response) => {
       console.log(response.data);
